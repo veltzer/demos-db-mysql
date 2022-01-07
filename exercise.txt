@@ -14,7 +14,7 @@
 		They both see same data
 		Client 2 changes data and commits
 		Client 1 still sees old data
-	- Demo that out of date data is shown *even with a third client which attached
+	- Demo that out of date data is shown *even with a third client which attached*
 		First client connects
 		Second client connects
 		They both see same data
