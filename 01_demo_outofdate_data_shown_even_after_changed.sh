@@ -1,8 +1,9 @@
-#!/bin/bash -e
+#!/bin/bash -eu
 
 dbname="demo"
 tblname="foo"
-destroy=0
+destroy=1
+
 echo "DROP DATABASE IF EXISTS $dbname" | mysql
 echo "CREATE DATABASE $dbname" | mysql
 echo "created a database called [$dbname]"
@@ -22,14 +23,13 @@ exec 3> /tmp/client1
 exec 4> /tmp/client2
 
 echo "======================="
-echo "first client"
+echo "client1"
 echo "START TRANSACTION;" > /tmp/client1
 echo "SELECT * FROM $tblname;" > /tmp/client1
 sleep 2
 
 echo "======================="
-echo "now client2..."
-echo "second client"
+echo "client2"
 echo "START TRANSACTION;" > /tmp/client2
 echo "SELECT * FROM $tblname;" > /tmp/client2
 echo "UPDATE $tblname SET data=17 where data=15;" > /tmp/client2
@@ -38,7 +38,7 @@ echo "COMMIT;" > /tmp/client2
 sleep 2
 
 echo "======================="
-echo "and now back to client1..."
+echo "client1"
 echo "SELECT * FROM $tblname;" > /tmp/client1
 echo "COMMIT;" > /tmp/client1
 sleep 2

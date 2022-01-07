@@ -1,8 +1,9 @@
-#!/bin/bash -e
+#!/bin/bash -eu
 
 dbname="demo"
 tblname="foo"
-destroy=0
+destroy=1
+
 echo "DROP DATABASE IF EXISTS $dbname" | mysql
 echo "CREATE DATABASE $dbname" | mysql
 echo "created a database called [$dbname]"
@@ -24,35 +25,31 @@ exec 4> /tmp/client2
 exec 5> /tmp/client3
 
 echo "======================="
-echo "first client"
+echo "client1"
 echo "START TRANSACTION;" > /tmp/client1
 echo "SELECT * FROM $tblname;" > /tmp/client1
 sleep 2
 
 echo "======================="
-echo "now client2..."
-echo "second client"
+echo "client2"
 echo "START TRANSACTION;" > /tmp/client2
 echo "SELECT * FROM $tblname;" > /tmp/client2
 echo "UPDATE $tblname SET data=17 where data=15;" > /tmp/client2
-echo "SELECT ROW_COUNT();" > /tmp/client2
 echo "SELECT * FROM $tblname;" > /tmp/client2
 echo "COMMIT;" > /tmp/client2
 sleep 2
 
 echo "======================="
-echo "and now back to client1..."
-echo "SELECT * FROM $tblname;" > /tmp/client1
-echo "UPDATE $tblname SET data=18 where data=15;" > /tmp/client1
-echo "SELECT ROW_COUNT();" > /tmp/client1
-echo "COMMIT;" > /tmp/client1
-sleep 2
-
-echo "======================="
-echo "new client3..."
+echo "client3"
 echo "START TRANSACTION;" > /tmp/client3
 echo "SELECT * FROM $tblname;" > /tmp/client3
 echo "COMMIT;" > /tmp/client3
+sleep 2
+
+echo "======================="
+echo "client1"
+echo "SELECT * FROM $tblname;" > /tmp/client1
+echo "COMMIT;" > /tmp/client1
 sleep 2
 
 # make eof appear to both clients by closing the relevant file
