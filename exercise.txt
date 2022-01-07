@@ -1,0 +1,32 @@
+- Install mysql server and client.
+	$ sudo apt install mysql-server mysql-client-8.0
+	* your version number may not be 8.0 depending on your ubunutu version.
+- Connect to your mysql server via sudo:
+	$ sudo mysql
+	* You can create a user with a password etc, but this is not a must.
+- start each session with the database with the command:
+	$ set autocommit=0
+	* remember that mysql's default is autocommit=1
+- By using more than one terminal please create the following three scenarios:
+	- Demo that out of date data is shown *even after it is changed and committed*
+		First client connects
+		Second client connects
+		They both see same data
+		Client 2 changes data and commits
+		Client 1 still sees old data
+	- Demo that out of date data is shown *even with a third client which attached
+		First client connects
+		Second client connects
+		They both see same data
+		Client 2 changes data and commits
+		Client 3 connects and already sees the new data
+		Client 1 still sees out of date data.
+	- Demo that a transaction fails if it is based on out of date data.
+		First client connects
+		Second client connects
+		They both see same data
+		Client 2 changes data and commits
+		Client 1 sees out of date data.
+		Client 1 tries to commit based on out of date data
+		Client 1 commit is rejected
+	Do the exercsies without a script.
