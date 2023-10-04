@@ -1,9 +1,6 @@
-- Install mysql server and client.
-	$ sudo apt install mysql-server mysql-client-8.0
-	* your version number may not be 8.0 depending on your ubunutu version.
 - Connect to your mysql server via sudo:
 	$ sudo mysql
-	* You can create a user with a password etc, but this is not a must.
+	* You can create a regular user with a password etc, but this is not a must.
 - start each session with the database with the command:
 	$ set autocommit=0
 	* remember that mysql's default is autocommit=1
