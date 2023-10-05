@@ -16,8 +16,8 @@ echo "finished creating table..."
 
 rm -f /tmp/client1 /tmp/client2
 mkfifo /tmp/client1 /tmp/client2
-mysql ${dbname} < /tmp/client1 &
-mysql ${dbname} < /tmp/client2 &
+mysql "${dbname}" < /tmp/client1 &
+mysql "${dbname}" < /tmp/client2 &
 echo "before exec..."
 exec 3> /tmp/client1
 exec 4> /tmp/client2
