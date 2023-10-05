@@ -7,6 +7,7 @@ CRATE TABLE FOO (
 Means nothing to mysql.
 
 Note that the "SHOW CREATE TABLE" shows that MySQL doesn't even remember the "11".
+It does remember the size of varchar fields etc.
 
 References:
 - https://www.youtube.com/watch?v=xYl67AvQci8

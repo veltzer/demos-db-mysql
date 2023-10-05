@@ -6,7 +6,7 @@ destroy=1
 
 echo "DROP DATABASE IF EXISTS ${dbname}" | mysql
 echo "CREATE DATABASE ${dbname}" | mysql
-echo "CREATE TABLE ${tblname} (num int(11))" | mysql "${dbname}"
+echo "CREATE TABLE ${tblname} (email varchar(255), num int(11))" | mysql "${dbname}"
 echo "SHOW CREATE TABLE ${tblname}" | mysql "${dbname}"
 
 # end of the script
