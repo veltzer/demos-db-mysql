@@ -66,6 +66,6 @@ then
 	echo "now dropping the database called [${dbname}]..."
 	echo "DROP DATABASE ${dbname}" | mysql
 	echo "now you should not see any output..."
-	echo "SHOW DATABASES" | mysql | grep "${dbname}"
+	echo "SHOW DATABASES" | mysql | grep "${dbname}" || true
 	echo "that's all..."
 fi
