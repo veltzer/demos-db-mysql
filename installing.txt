@@ -1,5 +1,0 @@
-On ubuntu install the following two packages:
-	mysql-client
-	mysql-server
-
-It will probably install verion 8.0 for you.
