@@ -8,7 +8,7 @@ DO_CHECK_SYNTAX:=1
 # code #
 ########
 ALL:=
-ALL_SH:=$(shell find . -name "*.sh" -printf "%P\n" 2> /dev/null)
+ALL_SH:=$(shell find . -type f -and -name "*.sh" -printf "%P\n" 2> /dev/null)
 ALL_SH_STAMP:=$(addprefix out/, $(addsuffix .stamp, $(ALL_SH)))
 
 # silent stuff
