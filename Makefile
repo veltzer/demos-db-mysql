@@ -1,6 +1,10 @@
 ##############
 # parameters #
 ##############
+# do you want to show the commands executed ?
+DO_MKDBG:=0
+# do you want dependency on the Makefile itself ?
+DO_ALLDEP:=1
 # do you want to check bash syntax?
 DO_CHECK_SYNTAX:=1
 
@@ -44,3 +48,10 @@ $(ALL_SH_STAMP): out/%.stamp: % .shellcheckrc
 	$(info doing [$@])
 	$(Q)shellcheck --shell=bash $<
 	$(Q)pymakehelper touch_mkdir $@
+
+##########
+# alldep #
+##########
+ifeq ($(DO_ALLDEP),1)
+.EXTRA_PREREQS+=$(foreach mk, ${MAKEFILE_LIST},$(abspath ${mk}))
+endif # DO_ALLDEP
