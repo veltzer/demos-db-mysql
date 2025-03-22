@@ -1,4 +1,4 @@
-name = "demos-mysql"
+name = "demos-db-mysql"
 description_short = "Demos for the mysql database server"
 keywords = [
     "mysql",
