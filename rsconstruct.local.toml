@@ -1,6 +1,0 @@
-# Repo-specific overlay. Deep-merged over the canonical rsconstruct.toml.
-
-# The demo shell scripts live in long/ (transactions, numeric-type demos),
-# which is not in the canonical shellcheck src_dirs.
-[processor.shellcheck]
-src_dirs = ["scripts", "long"]
