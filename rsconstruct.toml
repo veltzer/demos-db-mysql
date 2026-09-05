@@ -2,7 +2,6 @@
 
 [processor.shellcheck]
 src_dirs = ["scripts", "long"]
-args = ["--severity=error", "--shell=bash"]
 
 # ─── lua ─────────────────────────────────────────────────────────────────────
 
@@ -17,3 +16,9 @@ src_dirs = ["."]
 # lint the GitHub Actions workflow files with actionlint
 [processor.actionlint]
 src_dirs = [".github/workflows"]
+
+# ─── markdown ────────────────────────────────────────────────────────────────
+
+[processor.rumdl]
+src_dirs = ["long/number_of_digits_beside_int"]
+src_files = ["README.md"]

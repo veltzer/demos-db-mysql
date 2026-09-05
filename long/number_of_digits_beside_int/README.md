@@ -1,3 +1,5 @@
+# Number of digits beside int
+
 This example shows that this syntax:
 
 CRATE TABLE FOO (
