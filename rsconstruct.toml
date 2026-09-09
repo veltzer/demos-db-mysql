@@ -3,11 +3,6 @@
 [processor.shellcheck]
 src_dirs = ["scripts", "long"]
 
-# ─── lua ─────────────────────────────────────────────────────────────────────
-
-[processor.luacheck]
-src_dirs = ["config"]
-
 # ─── toml / yaml / json ──────────────────────────────────────────────────────
 
 [processor.taplo]
