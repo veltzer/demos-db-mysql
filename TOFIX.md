@@ -4,7 +4,6 @@ Findings from a code scan on 2026-10-04.
 
 ## Medium
 
-- `rsconstruct.toml:1` - the repo has `.luacheckrc` and `config/project.lua` but no `[processor.luacheck]`, so nothing lints the Lua config. Add `[processor.luacheck]` with `src_dirs = ["config"]`, as c-xmeltdown does.
 - `long/transactions/03_demo_fail_transaction_when_based_on_outofdate_data.sh:46` and `long/transactions/exercise.txt:28` - the demo name and the exercise ("Client 1 commit is rejected") say the stale transaction fails. Under InnoDB's default REPEATABLE READ, client 1's `UPDATE ... where data=15` is a current read: it matches 0 rows and the `COMMIT` succeeds, which is what the script's `SELECT ROW_COUNT()` shows. Reword the title and exercise to "the update based on stale data silently affects 0 rows", or demo a real rejection (`SELECT ... FOR UPDATE` / SERIALIZABLE).
 
 ## Low
