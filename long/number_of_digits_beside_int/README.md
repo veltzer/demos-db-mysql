@@ -16,5 +16,6 @@ In MySQL the size of the INT is not determined by the number in parenthesis.
 It is determined by TINYINT, SMALLINT, INT, MEDIUMINT, BIGINT etc...
 
 References:
+
 - <https://www.youtube.com/watch?v=xYl67AvQci8>
 - <https://dev.mysql.com/doc/refman/8.0/en/integer-types.html>
