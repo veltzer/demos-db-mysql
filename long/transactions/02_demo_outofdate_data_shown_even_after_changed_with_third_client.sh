@@ -8,10 +8,10 @@ echo "DROP DATABASE IF EXISTS ${dbname}" | mysql
 echo "CREATE DATABASE ${dbname}" | mysql
 echo "created a database called [${dbname}]"
 echo "lets see if indeed there is one..."
-echo "SHOW DATABASES" | mysql | grep ${dbname}
+echo "SHOW DATABASES" | mysql | grep "${dbname}"
 echo "creating a table for the demo..."
-echo "CREATE TABLE ${tblname} (data int)" | mysql ${dbname}
-echo "START TRANSACTION; INSERT INTO ${tblname} (data) values (15); COMMIT" | mysql ${dbname}
+echo "CREATE TABLE ${tblname} (data int)" | mysql "${dbname}"
+echo "START TRANSACTION; INSERT INTO ${tblname} (data) values (15); COMMIT" | mysql "${dbname}"
 echo "finished creating table..."
 
 rm -f /tmp/client1 /tmp/client2 /tmp/client3
