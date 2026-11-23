@@ -12,7 +12,7 @@ echo "SELECT * FROM ${tblname}" | mysql "${dbname}"
 echo "SHOW CREATE TABLE ${tblname}" | mysql "${dbname}"
 
 # end of the script
-if [ "${destroy}" = 1 ]
+if [[ "${destroy}" = 1 ]]
 then
 	echo "now dropping the database called [${dbname}]..."
 	echo "DROP DATABASE ${dbname}" | mysql

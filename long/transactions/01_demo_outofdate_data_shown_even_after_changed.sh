@@ -8,7 +8,7 @@ echo "DROP DATABASE IF EXISTS ${dbname}" | mysql
 echo "CREATE DATABASE ${dbname}" | mysql
 echo "created a database called [${dbname}]"
 echo "lets see if indeed there is one..."
-echo "SHOW DATABASES" | mysql | grep "${dbname}"
+{ echo "SHOW DATABASES" | mysql || true; } | grep "${dbname}"
 echo "creating a table for the demo..."
 echo "CREATE TABLE ${tblname} (data int)" | mysql "${dbname}"
 echo "START TRANSACTION; INSERT INTO ${tblname} (data) values (15); COMMIT" | mysql "${dbname}"
@@ -49,11 +49,11 @@ exec 3>&- # close file descriptor 3
 exec 4>&- # close file descriptor 4
 
 # end of the script
-if [ "${destroy}" = 1 ]
+if [[ "${destroy}" = 1 ]]
 then
 	echo "now dropping the database called [${dbname}]..."
 	echo "DROP DATABASE ${dbname}" | mysql
 	echo "now you should not see any output..."
-	echo "SHOW DATABASES" | mysql | grep "${dbname}" || true
+	{ echo "SHOW DATABASES" | mysql || true; } | grep "${dbname}" || true
 	echo "that's all..."
 fi
