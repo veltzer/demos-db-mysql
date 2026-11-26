@@ -39,3 +39,8 @@ args = ["--offline", "--no-progress", "--persona=pedantic"]
 [processor.checker.rumdl]
 src_dirs = ["long/number_of_digits_beside_int"]
 src_files = ["README.md"]
+
+# every lint suppression names a rule and says why (see the fleet's CLAUDE.md)
+[processor.checker.suppressions]
+src_dirs = [".github", "config", "long", "scripts"]
+src_files = [".yamllint.yaml", "README.md"]
