@@ -2,9 +2,11 @@
 
 This example shows that this syntax:
 
+```sql
 CRATE TABLE FOO (
     price INT(11)
 );
+```
 
 Means nothing to mysql.
 
